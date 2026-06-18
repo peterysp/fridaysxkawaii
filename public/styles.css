@@ -360,21 +360,42 @@ h2 {
   object-fit: cover;
 }
 
-.map-link {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+.map-preview {
+  position: relative;
   width: min(760px, 100%);
-  min-height: 58px;
-  padding: 16px 20px;
-  border: 1px solid var(--gold);
+  aspect-ratio: 16 / 5.5;
+  min-height: 280px;
+  overflow: hidden;
+  border: 1px solid var(--line);
   border-radius: 8px;
-  background: linear-gradient(180deg, #201b1d, #111012);
-  color: var(--pink);
-  font-size: clamp(0.95rem, 2vw, 1.25rem);
+  background: #09090a;
+  box-shadow: 0 22px 52px rgba(0, 0, 0, 0.34);
+}
+
+.map-preview iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.map-preview::after {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  content: "";
+  background: linear-gradient(180deg, rgba(11, 11, 13, 0.1) 0%, rgba(11, 11, 13, 0.52) 100%);
+}
+
+.map-overlay {
+  position: absolute;
+  left: 28px;
+  bottom: 24px;
+  z-index: 1;
+  color: var(--paper);
+  font-size: clamp(1.2rem, 3vw, 1.7rem);
   font-weight: 900;
-  text-align: center;
-  overflow-wrap: anywhere;
+  text-shadow: 0 3px 16px rgba(0, 0, 0, 0.62);
 }
 
 .instagram-card {
