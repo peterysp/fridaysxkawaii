@@ -98,6 +98,18 @@ a {
   color: var(--paper);
 }
 
+.nav-links .nav-login {
+  border-color: var(--red);
+  background: var(--red);
+  color: white;
+}
+
+.nav-links .nav-login:hover,
+.nav-links .nav-login:focus-visible {
+  border-color: var(--gold);
+  color: white;
+}
+
 .menu-toggle {
   display: none;
   width: 44px;
