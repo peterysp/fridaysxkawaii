@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard - Fridays x Kawaii</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body class="admin-page">
+    <main class="admin-shell dashboard-shell">
+      <header class="admin-topbar">
+        <a class="admin-brand" href="/" aria-label="Kembali ke website">
+          <img src="/assets/logo-new.png" alt="Fridays x Kawaii Basketball logo" />
+          <span>Fridays x Kawaii</span>
+        </a>
+        <button class="secondary-action admin-logout" type="button" data-logout>Keluar</button>
+      </header>
+
+      <section class="admin-dashboard" aria-labelledby="dashboard-title">
+        <div class="section-heading admin-heading">
+          <p class="eyebrow">Admin</p>
+          <h1 id="dashboard-title" class="admin-title">Google Sheet</h1>
+        </div>
+        <div class="sheet-panel">
+          <div class="sheet-toolbar">
+            <strong data-sheet-count>Memuat data</strong>
+            <button class="match-link" type="button" data-refresh-sheet>Refresh</button>
+          </div>
+          <div class="sheet-state" data-sheet-state role="status">Mengambil data dari Google Sheet...</div>
+          <div class="sheet-table-wrap" data-sheet-table-wrap hidden>
+            <table class="sheet-table" data-sheet-table></table>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="/admin.js"></script>
+  </body>
+</html>

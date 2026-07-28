@@ -680,6 +680,182 @@ h2 {
   font-size: 0.86rem;
 }
 
+.footer-admin-link {
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.footer-admin-link:hover,
+.footer-admin-link:focus-visible {
+  color: var(--paper);
+}
+
+.admin-page {
+  min-height: 100vh;
+  background:
+    linear-gradient(135deg, rgba(11, 11, 13, 0.94), rgba(17, 16, 18, 0.86)),
+    url("/assets/pertandingan/team-match.jpg") center / cover fixed,
+    var(--ink);
+}
+
+.admin-shell {
+  width: min(1120px, calc(100% - 36px));
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: clamp(28px, 6vw, 72px) 0;
+}
+
+.login-shell {
+  display: grid;
+  place-items: center;
+}
+
+.login-panel,
+.sheet-panel,
+.admin-topbar {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(17, 16, 18, 0.94);
+  backdrop-filter: blur(16px);
+}
+
+.login-panel {
+  display: grid;
+  gap: 26px;
+  width: min(460px, 100%);
+  padding: clamp(22px, 5vw, 36px);
+}
+
+.admin-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  width: fit-content;
+  font-weight: 950;
+  text-transform: uppercase;
+}
+
+.admin-brand img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+
+.admin-title {
+  max-width: none;
+  margin: 0;
+  font-size: clamp(2.4rem, 7vw, 5.6rem);
+  line-height: 0.92;
+}
+
+.login-form {
+  display: grid;
+  gap: 16px;
+}
+
+.login-form label {
+  display: grid;
+  gap: 8px;
+  color: var(--muted);
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.login-form input {
+  width: 100%;
+  min-height: 48px;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #09090a;
+  color: var(--paper);
+  font: inherit;
+}
+
+.form-message,
+.sheet-state {
+  margin: 0;
+  color: #ddd4cd;
+  line-height: 1.6;
+}
+
+.dashboard-shell {
+  display: grid;
+  align-content: start;
+  gap: 24px;
+}
+
+.admin-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 16px 18px;
+}
+
+.admin-logout {
+  min-height: 42px;
+  padding: 10px 14px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.admin-dashboard {
+  display: grid;
+  gap: 24px;
+}
+
+.admin-heading {
+  margin-bottom: 0;
+}
+
+.sheet-panel {
+  display: grid;
+  gap: 18px;
+  padding: clamp(18px, 4vw, 28px);
+}
+
+.sheet-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.sheet-toolbar strong {
+  color: var(--gold);
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+.sheet-table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.sheet-table {
+  width: 100%;
+  min-width: 620px;
+  border-collapse: collapse;
+  background: #09090a;
+}
+
+.sheet-table th,
+.sheet-table td {
+  padding: 14px;
+  border-bottom: 1px solid var(--line);
+  color: #ddd4cd;
+  text-align: left;
+  vertical-align: top;
+}
+
+.sheet-table th {
+  color: var(--paper);
+  font-size: 0.82rem;
+  text-transform: uppercase;
+}
+
 @media (max-width: 980px) {
   .menu-toggle {
     display: block;

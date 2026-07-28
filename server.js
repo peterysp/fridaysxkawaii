@@ -1,10 +1,20 @@
 const http = require("http");
 const fs = require("fs");
 const path = require("path");
+const loginHandler = require("./api/login");
+const logoutHandler = require("./api/logout");
+const meHandler = require("./api/me");
+const sheetHandler = require("./api/sheet");
 
 const publicDir = path.join(__dirname, "public");
 const port = process.env.PORT || 3000;
 const host = process.env.HOST || "127.0.0.1";
+const apiRoutes = {
+  "/api/login": loginHandler,
+  "/api/logout": logoutHandler,
+  "/api/me": meHandler,
+  "/api/sheet": sheetHandler
+};
 
 const mimeTypes = {
   ".html": "text/html; charset=utf-8",
@@ -37,6 +47,12 @@ function sendFile(response, filePath) {
 
 const server = http.createServer((request, response) => {
   const urlPath = decodeURIComponent(request.url.split("?")[0]);
+
+  if (apiRoutes[urlPath]) {
+    apiRoutes[urlPath](request, response);
+    return;
+  }
+
   const safePath = path.normalize(urlPath).replace(/^(\.\.[/\\])+/, "");
   const requestedPath = safePath === "/" ? "/index.html" : safePath;
   const filePath = path.join(publicDir, requestedPath);

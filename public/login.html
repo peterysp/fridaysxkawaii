@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Login - Fridays x Kawaii</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body class="admin-page">
+    <main class="admin-shell login-shell">
+      <section class="login-panel" aria-labelledby="login-title">
+        <a class="admin-brand" href="/" aria-label="Kembali ke website">
+          <img src="/assets/logo-new.png" alt="Fridays x Kawaii Basketball logo" />
+          <span>Fridays x Kawaii</span>
+        </a>
+        <div>
+          <p class="eyebrow">Admin</p>
+          <h1 id="login-title" class="admin-title">Login</h1>
+        </div>
+        <form class="login-form" data-login-form>
+          <label>
+            Username
+            <input name="username" type="text" autocomplete="username" required />
+          </label>
+          <label>
+            Password
+            <input name="password" type="password" autocomplete="current-password" required />
+          </label>
+          <button class="primary-action" type="submit">Masuk</button>
+          <p class="form-message" data-login-message role="status"></p>
+        </form>
+      </section>
+    </main>
+
+    <script src="/admin.js"></script>
+  </body>
+</html>
