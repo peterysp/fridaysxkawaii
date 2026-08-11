@@ -18,8 +18,12 @@ const lightboxImage = document.querySelector("[data-lightbox-image]");
 const lightboxClose = document.querySelector(".lightbox-close");
 const lightboxPrev = document.querySelector(".lightbox-prev");
 const lightboxNext = document.querySelector(".lightbox-next");
+const lightboxDownload = document.querySelector("[data-lightbox-download]");
 const galleryPhotos = document.querySelectorAll(".gallery-photo");
+const matchPhotos = document.querySelectorAll(".match-photo-link");
 const galleryItems = [];
+const matchItems = [];
+let activeLightboxItems = galleryItems;
 let currentGalleryIndex = 0;
 let touchStartX = 0;
 
@@ -36,11 +40,13 @@ galleryPhotos.forEach((photo) => {
 });
 
 function showGalleryImage(index) {
-  currentGalleryIndex = (index + galleryItems.length) % galleryItems.length;
-  const item = galleryItems[currentGalleryIndex];
+  currentGalleryIndex = (index + activeLightboxItems.length) % activeLightboxItems.length;
+  const item = activeLightboxItems[currentGalleryIndex];
 
   lightboxImage.src = item.src;
   lightboxImage.alt = item.alt;
+  lightboxDownload.href = item.src;
+  lightboxDownload.setAttribute("download", item.src.split("/").pop());
 }
 
 function closeLightbox() {
@@ -48,13 +54,32 @@ function closeLightbox() {
   lightbox.setAttribute("aria-hidden", "true");
   lightboxImage.removeAttribute("src");
   lightboxImage.removeAttribute("alt");
+  lightboxDownload.removeAttribute("href");
 }
 
 galleryPhotos.forEach((photo) => {
   photo.addEventListener("click", (event) => {
     event.preventDefault();
 
+    activeLightboxItems = galleryItems;
     showGalleryImage(Number(photo.dataset.galleryIndex));
+    lightbox.classList.add("is-open");
+    lightbox.setAttribute("aria-hidden", "false");
+  });
+});
+
+matchPhotos.forEach((photo) => {
+  const image = photo.querySelector("img");
+
+  matchItems.push({
+    src: photo.href,
+    alt: image.alt
+  });
+
+  photo.addEventListener("click", (event) => {
+    event.preventDefault();
+    activeLightboxItems = matchItems;
+    showGalleryImage(matchItems.findIndex((item) => item.src === photo.href));
     lightbox.classList.add("is-open");
     lightbox.setAttribute("aria-hidden", "false");
   });
